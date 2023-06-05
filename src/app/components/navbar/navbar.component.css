@@ -1,0 +1,18 @@
+.nav-link{
+    color: #000000 !important;
+}
+@media (min-width: 992px) {
+    .navbar{
+        font-family: 'Roboto', sans-serif;
+        padding: 0 24px 0 24px;
+        height: 60px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 991px) {
+    .navbar{
+        font-family: 'Roboto', sans-serif;
+        padding: 10.8125px 24px 10.8125px 24px;
+        
+    }
+}

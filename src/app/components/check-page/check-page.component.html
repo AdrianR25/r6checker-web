@@ -1,0 +1,128 @@
+<div class="bg-image">
+    <app-navbar></app-navbar>
+
+    <div *ngIf="error && error == 'player'" class="http-error">
+        <div *ngIf="error == 'player'" class="text-player">
+            <span>The player you were looking for can't be found</span>
+        </div>
+    </div>
+
+    <div *ngIf="!checkResults && !error" class="cssload-dots">
+        <div class="cssload-dot"></div>
+        <div class="cssload-dot"></div>
+        <div class="cssload-dot"></div>
+        <div class="cssload-dot"></div>
+        <div class="cssload-dot"></div>
+    </div>
+    
+    <svg *ngIf="!checkResults && !error" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <filter id="goo">
+                <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="12" ></feGaussianBlur>
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0	0 1 0 0 0	0 0 1 0 0	0 0 0 18 -7" result="goo" ></feColorMatrix>
+                <!--<feBlend in2="goo" in="SourceGraphic" result="mix" ></feBlend>-->
+            </filter>
+        </defs>
+    </svg>
+
+    <div *ngIf="checkResults" class="check-results">
+        <div class="profile-data">
+            <img src="{{checkResults.profilePic}}" alt="{{checkResults.username}}">
+            <div class="profile-text">
+                <span id="username">{{checkResults.username}}</span> <br>
+                <span>Level {{checkResults.playerLevel}}</span> <br>
+                <span>{{rankedPlaytime}}h on Ranked</span> <br>
+                <!--<span class="badge badge-danger" tooltip="This player was banned for: Cheating" placement="top" show-delay="0" hide-delay="100" theme="light" shadow=true>Banned</span> <br>-->
+                <span *ngIf="(checkResults.username=='BostonBearJew') && (checkResults.playerLevel==237)" class="badge badge-danger">R I P</span>
+            </div>
+        </div>
+
+        <div class="data-summary">
+            <span>{{cheatSummary}}</span>
+        </div>
+
+        <div class="data-presentation">
+            <div class="progress-container">
+                <div *ngIf="checkResults.cheatRating != 'error'" class="current">{{checkResults.cheatRating}}%</div>
+                <div *ngIf="checkResults.cheatRating == 'error'" class="current">?</div>
+                <div class="round-progress">
+                    <round-progress
+                        [current]="checkResults.cheatRating"
+                        [max]="100"
+                        [color]="'#f44336'"
+                        [background]="'#eaeaea'"
+                        [radius]="75"
+                        [stroke]="15"
+                        [semicircle]="false"
+                        [rounded]="true"
+                        [clockwise]="true"
+                        [responsive]="true"
+                        [duration]="800"
+                        [animation]="'easeInOutQuart'"
+                        [animationDelay]="0">
+                    </round-progress>
+                </div>
+                <div class="description">Cheatrate</div>
+            </div>
+            <div class="progress-container">
+                <div *ngIf="checkResults.rankedWinrate != 'error'" class="current">{{checkResults.rankedWinrate}}%</div>
+                <div *ngIf="checkResults.rankedWinrate == 'error'" class="current">?</div>
+                <div class="round-progress">
+                    <round-progress
+                        [current]="checkResults.rankedWinrate"
+                        [max]="100"
+                        [color]="'#9CCC65'"
+                        [background]="'#eaeaea'"
+                        [radius]="75"
+                        [stroke]="15"
+                        [semicircle]="false"
+                        [rounded]="true"
+                        [clockwise]="true"
+                        [responsive]="true"
+                        [duration]="800"
+                        [animation]="'easeInOutQuart'"
+                        [animationDelay]="0">
+                    </round-progress>
+                    </div>
+                <div class="description">Ranked W/L</div>
+            </div>
+            <div class="progress-container">
+                <div *ngIf="checkResults.rankedKillrate != 'error'" class="current">{{checkResults.rankedKillrate}}</div>
+                <div *ngIf="checkResults.rankedKillrate == 'error'" class="current">?</div>
+                <div class="round-progress">
+                    <round-progress
+                        [current]="checkResults.rankedKillrate"
+                        [max]="5"
+                        [color]="'#9CCC65'"
+                        [background]="'#eaeaea'"
+                        [radius]="75"
+                        [stroke]="15"
+                        [semicircle]="false"
+                        [rounded]="true"
+                        [clockwise]="true"
+                        [responsive]="true"
+                        [duration]="800"
+                        [animation]="'easeInOutQuart'"
+                        [animationDelay]="0">
+                    </round-progress>
+                </div>
+                <div class="description">Ranked K/D</div>
+            </div>
+        </div>
+
+        <div class="rank-presentation">
+            <div class="rank-container">
+                <img class="rank-image" src="{{currentRankUrl}}" alt="Current Rank">
+                <div class="description">Current rank</div>
+            </div>
+            <div class="rank-container">
+                <img class="rank-image" src="{{season16RankUrl}}" alt="Burnt Horizon">
+                <div class="description">Shifting Tides</div>
+            </div>
+            <div class="rank-container">
+                <img class="rank-image" src="{{season15RankUrl}}" alt="Wind Bastion">
+                <div class="description">Ember Rise</div>
+            </div>
+        </div>
+    </div>
+</div>

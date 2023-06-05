@@ -1,0 +1,113 @@
+/*Search field*/
+.text-field{
+    background-color: rgba(0, 0, 0, 0);
+    color: #000000;
+    border: 3px #000000 solid;
+    border-radius: 10px;
+    font-family:'Roboto', sans-serif;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #000000;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #000000;
+}
+    
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #000000;
+}
+
+
+/*Platform selection*/
+.button-container{
+    margin-top: 24px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+}
+
+label{
+    margin: 0;
+}
+
+/* HIDE RADIO */
+.button-container [type=radio] { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+    
+/* IMAGE STYLES */
+.button-container [type=radio] + svg {
+    cursor: pointer;
+}
+
+/* UNCHEKED STYLE */
+.button-container [type=radio] + svg path{
+    fill: #000000 !important;
+}
+
+/* CHECKED STYLES */
+.button-container [type=radio]:checked + #xbox path{
+    fill: #9bc848 !important;
+}
+.button-container [type=radio]:checked + #psn path{
+    fill: #665cbe !important;
+}
+.button-container [type=radio]:checked + #uplay path{
+    fill: #0071FE !important;
+}
+
+
+/*Submit button*/
+#submit-button{
+    padding: 0;
+    border: 0;
+    border-radius: 10px !important;
+    color: #000000;
+}
+
+
+@media (min-width: 767px){
+    .text-field{
+        width: 400px;
+        height: 60px;
+        font-size: 24px;
+        padding-left: 24px;
+    }
+
+    label, svg{
+        width: auto;
+        height: 80px;
+    }
+
+    #submit-button{
+        font-size: 24px;
+        width: 400px;
+        height: 50px;
+    }
+
+}
+@media (max-width: 766px){
+    .text-field{
+        width: 200px;
+        height: 35px;
+        font-size: 20px;
+        padding-left: 12px;
+    }
+
+    label, svg{
+        width: auto;
+        height: 40px;
+    }
+
+    #submit-button{
+        font-size: 20px;
+        width: 200px;
+        height: 35px;
+    }
+}

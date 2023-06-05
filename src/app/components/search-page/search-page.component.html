@@ -1,0 +1,39 @@
+<div class="bg-image">
+    <app-navbar></app-navbar>
+    <div class="search-field">
+        <app-search></app-search>
+    </div>
+
+    <div *ngIf="!searchResults" class="cssload-dots">
+        <div class="cssload-dot"></div>
+        <div class="cssload-dot"></div>
+        <div class="cssload-dot"></div>
+        <div class="cssload-dot"></div>
+        <div class="cssload-dot"></div>
+    </div>
+    
+    <svg *ngIf="!searchResults" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <filter id="goo">
+                <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="12" ></feGaussianBlur>
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0	0 1 0 0 0	0 0 1 0 0	0 0 0 18 -7" result="goo" ></feColorMatrix>
+                <!--<feBlend in2="goo" in="SourceGraphic" result="mix" ></feBlend>-->
+            </filter>
+        </defs>
+    </svg>
+
+    <div *ngIf="searchResults && totalResults > 0" class="search-area">
+        <div>
+            <p>{{totalResults}} Results</p>
+            <div class="search-results">
+                <div *ngFor="let user of searchResults" class="result">
+                    <a routerLink="/check/{{user.playerId}}"><img src="{{user.profilePic}}" alt="{{user.username}}"></a> 
+                    <a id="username" routerLink="/check/{{user.playerId}}">{{user.username}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <span id="not-found" *ngIf="searchResults && totalResults == 0">Nothing was found</span>
+
+</div>

@@ -1,0 +1,42 @@
+.bg-image{
+    height: 100vh;
+    margin: 0;
+    background-size: 167% cover;
+    background-position: top center;
+}
+.search-field{
+    height: calc(100% - 60px);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+span{
+    color: #000000;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 24px;
+    font-size: 24px;
+    text-align: center;
+}
+
+@media (min-width: 1921px){
+    .bg-image{
+        background-image: url("../../../assets/backgrounds/bg-image-home@2x.webp");
+    }
+}
+@media (max-width: 1920px){
+    .bg-image{
+        background-image: url("../../../assets/backgrounds/bg-image-home.webp");
+    }
+}
+@media (max-width: 766px){
+    span{
+        font-size: 18px;
+    }
+    .bg-image{
+        background-size: 600%;
+        background-position: 37% top;
+    }
+}
