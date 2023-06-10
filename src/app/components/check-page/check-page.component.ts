@@ -40,9 +40,9 @@ export class CheckPageComponent implements OnInit {
   generateData(){
     this.checkResults = this.checkResults;
     this.rankedPlaytime = this.checkResults.rankedPlaytime.toFixed(0);
-    this.currentRankUrl = "https://r6tab.com/images/pngranks/" + this.checkResults["currentRank"] + ".png";
-    this.season16RankUrl = "https://r6tab.com/images/pngranks/" + this.checkResults["season15Rank"] + ".png";
-    this.season15RankUrl = "https://r6tab.com/images/pngranks/" + this.checkResults["season14Rank"] + ".png";
+    this.currentRankUrl = "./assets/ranks/" + this.checkResults["currentRank"] + ".webp";
+    this.season16RankUrl = "./assets/ranks/" + this.checkResults["season16Rank"] + ".webp";
+    this.season15RankUrl = "./assets/ranks/" + this.checkResults["season15Rank"] + ".webp";
     if (this.checkResults["cheatRating"] >= 0 && this.checkResults["cheatRating"] <= 25){
       this.cheatSummary = "It doesn't look like this player is cheating"
     } else if (this.checkResults["cheatRating"] > 25 && this.checkResults["cheatRating"] <= 50){
