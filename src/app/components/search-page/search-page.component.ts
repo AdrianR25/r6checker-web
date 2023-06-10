@@ -22,12 +22,9 @@ export class SearchPageComponent implements OnInit {
   }
 
   makeSearch(platform: string, username: string){
-    this.searchResults = undefined;
-    this.dataService.getSearch(platform, username)
-    .subscribe(data => {
-      this.searchResults = data.searchResults;
-      this.totalResults = data.totalResults;
-    });
+    const search = this.dataService.getSearch(platform, username);
+    this.searchResults = search.searchResults;
+    this.totalResults = search.totalResults;
   }
 
 }

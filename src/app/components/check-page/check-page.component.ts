@@ -33,22 +33,8 @@ export class CheckPageComponent implements OnInit {
   }
 
   checkPlayer(playerId: string){
-    this.dataService.getCheck(playerId)
-    .subscribe(data => {
-      this.checkResults = data.checkResults;
-      this.generateData();
-    }, 
-      error => {
-        console.log(error);
-        if (error.error.description == "Player not found"){
-          this.error = "player";
-        } else{
-          this.error = "data";
-          this.checkResults = error.error.checkResults;
-          this.generateData();
-        }
-      }
-    );
+    this.checkResults = this.dataService.getCheck(playerId).checkResults;
+    this.generateData();
   }
 
   generateData(){
@@ -63,7 +49,7 @@ export class CheckPageComponent implements OnInit {
       this.cheatSummary = "There is a low chance of this player is using cheats"
     } else if (this.checkResults["cheatRating"] > 50 && this.checkResults["cheatRating"] <= 75){
       this.cheatSummary = "It is possible that this player is using cheats"
-    } else if (this.checkResults["cheatRaing"] > 75){
+    } else if (this.checkResults["cheatRating"] > 75){
       this.cheatSummary = "It looks like this player is using cheats"
     } else {
       this.cheatSummary = "It isn't possible to determine whether this player is cheating or not"
