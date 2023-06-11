@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "target": "r6checker",
+    "public": "dist/r6checker",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
