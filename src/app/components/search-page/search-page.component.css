@@ -34,9 +34,26 @@
     border-radius: 50%;
 }
 
-#username{
-    margin-left: 15px;
+.result {
+	display: flex;
+	flex-direction: row;
 }
+
+.result-text {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-left: 15px;
+}
+
+.result-text > a:nth-child(2) {
+	font-size: small;
+}
+
+.result-text > a:nth-child(2):hover {
+	text-decoration: underline !important;
+}
+
 a:link, a:visited, a:hover, a:active{
     text-decoration: none !important;
     color: #000000;

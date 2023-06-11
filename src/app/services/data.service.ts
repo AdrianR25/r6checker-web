@@ -4,6 +4,7 @@ import { Search } from '../interfaces/search';
 import { Check } from '../interfaces/check';
 import ProfilePicturesIndex from '../../assets/demo-data/profile-pictures/index.json';
 import RandomUsernames from '../../assets/demo-data/usernames.json';
+import { ProfilePic } from '../interfaces/profile-pic';
 
 @Injectable({
   providedIn: 'root'
@@ -86,8 +87,14 @@ export class DataService {
 
   refreshProfile() { }
 
-  private getRandomProfilePicUrl(): string {
-    return `./assets/demo-data/profile-pictures/${ProfilePicturesIndex[Math.floor(Math.random() * ProfilePicturesIndex.length)].id}.webp`;
+  private getRandomProfilePicUrl(): ProfilePic {
+    const index = ProfilePicturesIndex[Math.floor(Math.random() * ProfilePicturesIndex.length)];
+    return {
+      author: index.author,
+      link: index.link,
+      localLink: `./assets/demo-data/profile-pictures/${index.id}.webp`,
+      site: index.site
+    };
   }
 
 }

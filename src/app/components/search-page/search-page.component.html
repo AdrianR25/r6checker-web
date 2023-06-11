@@ -27,8 +27,11 @@
             <p>{{totalResults}} Results</p>
             <div class="search-results">
                 <div *ngFor="let user of searchResults" class="result">
-                    <a routerLink="/check/{{user.playerId}}"><img src="{{user.profilePic}}" alt="{{user.username}}"></a> 
-                    <a id="username" routerLink="/check/{{user.playerId}}">{{user.username}}</a>
+                    <a routerLink="/check/{{user.playerId}}"><img src="{{user.profilePic.localLink}}" alt="{{user.username}}"></a> 
+                    <div class="result-text">
+                        <a id="username" routerLink="/check/{{user.playerId}}">{{user.username}}</a>
+                        <a id="picCredit" [href]="user.profilePic.link">Profile picture by {{user.profilePic.author}} on {{user.profilePic.site}}</a>
+                    </div>
                 </div>
             </div>
         </div>

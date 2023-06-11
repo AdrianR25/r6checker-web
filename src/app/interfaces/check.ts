@@ -1,8 +1,10 @@
+import { ProfilePic } from "./profile-pic";
+
 export interface Check {
     error: boolean;
     checkResults: {
         username: string;
-        profilePic: string;
+        profilePic: ProfilePic;
         playerLevel: number;
         cheatRating: any;
         rankedWinrate: any;

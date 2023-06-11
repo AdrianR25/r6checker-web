@@ -27,12 +27,13 @@
 
     <div *ngIf="checkResults" class="check-results">
         <div class="profile-data">
-            <img src="{{checkResults.profilePic}}" alt="{{checkResults.username}}">
+            <img src="{{checkResults.profilePic.localLink}}" alt="{{checkResults.username}}">
             <div class="profile-text">
                 <span id="username">{{checkResults.username}}</span> <br>
                 <span>Level {{checkResults.playerLevel}}</span> <br>
                 <span>{{rankedPlaytime}}h on Ranked</span> <br>
                 <!--<span class="badge badge-danger" tooltip="This player was banned for: Cheating" placement="top" show-delay="0" hide-delay="100" theme="light" shadow=true>Banned</span> <br>-->
+                <a [href]="checkResults.profilePic.link">Profile picture by {{checkResults.profilePic.author}} on {{checkResults.profilePic.site}}</a>
                 <span *ngIf="(checkResults.username=='BostonBearJew') && (checkResults.playerLevel==237)" class="badge badge-danger">R I P</span>
             </div>
         </div>

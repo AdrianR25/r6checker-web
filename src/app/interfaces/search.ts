@@ -1,3 +1,5 @@
+import { ProfilePic } from "./profile-pic";
+
 export interface Search {
     totalResults: number;
     searchResults: Array<Result>
@@ -6,5 +8,5 @@ export interface Search {
 export interface Result{
     username: string;
     playerId: string;
-    profilePic: string;
+    profilePic: ProfilePic;
 }
