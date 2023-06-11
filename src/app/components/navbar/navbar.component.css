@@ -1,6 +1,11 @@
 .nav-link{
     color: #000000 !important;
 }
+
+.bg-light {
+    background-color: #F57C00 !important;
+}
+
 @media (min-width: 992px) {
     .navbar{
         font-family: 'Roboto', sans-serif;
