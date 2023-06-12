@@ -30,7 +30,7 @@
                     <a routerLink="/check/{{user.playerId}}"><img src="{{user.profilePic.localLink}}" alt="{{user.username}}"></a> 
                     <div class="result-text">
                         <a id="username" routerLink="/check/{{user.playerId}}">{{user.username}}</a>
-                        <a id="picCredit" [href]="user.profilePic.link">Profile picture by {{user.profilePic.author}} on {{user.profilePic.site}}</a>
+                        <a id="picCredit" target="_blank" rel="noopener" [href]="user.profilePic.link">Profile picture by {{user.profilePic.author}} on {{user.profilePic.site}}</a>
                     </div>
                 </div>
             </div>

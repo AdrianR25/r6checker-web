@@ -33,7 +33,7 @@
                 <span>Level {{checkResults.playerLevel}}</span> <br>
                 <span>{{rankedPlaytime}}h on Ranked</span> <br>
                 <!--<span class="badge badge-danger" tooltip="This player was banned for: Cheating" placement="top" show-delay="0" hide-delay="100" theme="light" shadow=true>Banned</span> <br>-->
-                <a [href]="checkResults.profilePic.link">Profile picture by {{checkResults.profilePic.author}} on {{checkResults.profilePic.site}}</a>
+                <a target="_blank" rel="noopener" [href]="checkResults.profilePic.link">Profile picture by {{checkResults.profilePic.author}} on {{checkResults.profilePic.site}}</a>
                 <span *ngIf="(checkResults.username=='BostonBearJew') && (checkResults.playerLevel==237)" class="badge badge-danger">R I P</span>
             </div>
         </div>
