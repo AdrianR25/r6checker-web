@@ -78,9 +78,9 @@ export class DataService {
         rankedPlaytime: Math.floor(Math.random() * 24),
         rankedKillrate: Math.round(Math.random() * 100) / 100,
         currentMmr: Math.floor(Math.random() * 5000),
-        currentRank: Math.ceil(Math.random() * 20),
-        season16Rank: Math.floor(Math.random() * 20),
-        season15Rank: Math.floor(Math.random() * 20),
+        currentRank: Math.ceil(Math.random() * 19) + 1,
+        season16Rank: Math.floor(Math.random() * 19) + 1,
+        season15Rank: Math.floor(Math.random() * 19) + 1,
       }
     }
   }
